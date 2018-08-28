@@ -1,15 +1,15 @@
 var middlewareObj = {},
-    Campground = require("../models/campground"),
-    Comment = require("../models/comment");
+    Journalentry = require("../models/journalentry");
+    //Comment = require("../models/comment");
 
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
    if(req.isAuthenticated()){
-      Campground.findById(req.params.id, function(err, foundCampground){
+      Journalentry.findById(req.params.id, function(err, foundJournalentry){
          if(err){
             req.flash("error", "Campground not found");
-            res.redirect("/campgrounds")
+            res.redirect("/journalentries")
          } else {
-            if(foundCampground.author.id.equals(req.user._id)) {
+            if(foundJournalentry.author.id.equals(req.user._id)) {
                next();
             } else {
                req.flash("error", "You do not have permission to do that");
@@ -23,7 +23,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
    }
 }
 
-
+/*
 middlewareObj.checkCommentOwnership = function(req, res, next){
    if(req.isAuthenticated()){
       Comment.findById(req.params.comment_id, function(err, foundComment){
@@ -44,6 +44,8 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
       res.redirect("back");
    }
 }
+
+*/
 
 middlewareObj.isLoggedIn = function(req, res, next){
    if(req.isAuthenticated()){

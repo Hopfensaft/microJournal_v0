@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<div class = container>
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Welcome to MicroJournal!</h1>
+            <p>The quick and easy way to stick to a daily journaling routine</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="/journalentries/new">Add new entry for today</a>
+            </p>
+        </div>    
+    </header>
+
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <% journalentries.forEach(function(journalentry){ %>
+            <div class="d-inline-flex">
+                <div class="d-flex flex-row" style="max-width: 3px;">
+                        <div class="align-self-end" style="transform: rotate(270deg); transform-origin: left bottom;">#<%= journalentry.day_number %></div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= journalentry.memento %> </h4>
+                        <a href="/journalentries/<%= journalentry._id %>" class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+            </div>
+            
+        <% }); %>
+            
+    </div>
+</div>
+
+<% include ../partials/footer %>

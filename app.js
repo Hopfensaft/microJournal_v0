@@ -10,8 +10,7 @@ var express = require("express"),
     JournalEntry = require("./models/journalentry"),
     User = require("./models/user");
     
-var //commentRoutes = require("./routes/comments"),
-    //campgroundRoutes = require("./routes/campgrounds"),
+var journalentryRoutes = require("./routes/journalentries"),
     indexRoutes = require("./routes/index");
 
 //Passport configuration
@@ -45,7 +44,7 @@ app.use(express.static(__dirname + "/public"))
 // seedDB(); ssed the database
 
 app.use(indexRoutes);
-//app.use("/campgrounds", campgroundRoutes);
+app.use("/journalentries", journalentryRoutes);
 //app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){

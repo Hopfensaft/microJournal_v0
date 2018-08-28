@@ -18,7 +18,8 @@ router.post("/register", function(req, res){
          username: req.body.username, 
          firstName: req.body.firstName, 
          lastName: req.body.lastName, 
-         email: req.body.email
+         email: req.body.email,
+         birthday: req.body.birthday
    })
    User.register(newUser, req.body.password, function(err, user){
       if(err){
@@ -27,7 +28,7 @@ router.post("/register", function(req, res){
       }
       passport.authenticate("local")(req, res, function(){
          req.flash("success", "Welcome to MicroJournal, " + user.username);
-         res.redirect("/campgrounds");
+         res.redirect("/journalentries");
       });
    });
 });
@@ -38,7 +39,7 @@ router.get("/login", function(req, res){
 
 router.post("/login", passport.authenticate("local", 
          {
-            successRedirect: "/campgrounds",
+            successRedirect: "/journalentries",
             failureRedirect: "/login"
          }), function(req, res){
 });
