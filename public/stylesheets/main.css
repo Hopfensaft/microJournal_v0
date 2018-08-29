@@ -1,0 +1,77 @@
+#flex-outline {
+  max-width: 300px;
+  margin: 20px 20px;
+}
+
+#day_num {
+  transform-origin: bottom left;
+  transform: rotate(270deg);
+  margin-left: 3px;
+  margin-bottom: 5px;
+}
+
+#middle-column {
+  height: 250px;
+}
+
+.card {
+  width: 250px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
+  box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
+}
+
+#add-stuff {
+  position: relative;
+  margin-top: 5px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 5px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
+  box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
+}
+
+#activity_button {
+  position: relative;
+  margin: 5px;
+  height: 35px;
+  width: 35px;
+  font-size: 11px;
+  border-radius: 50%;
+}
+
+#wake_button {
+  margin: 5px;
+  height: 35px;
+  width: 35px;
+  font-size: 11px;
+  border-radius: 50%;
+}
+
+#add-stuff:nth-of-type(1) {
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+
+#main-item {
+  width: 250px;
+}
+
+#main-item div {
+  margin: 7px;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.form-delete {
+    display: inline;
+}
+
+.alert {
+    margin: 20px 0;
+}
