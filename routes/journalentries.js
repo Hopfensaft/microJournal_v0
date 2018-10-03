@@ -15,7 +15,7 @@ router.get("/", function(req, res){
 
 router.post("/", middleware.isLoggedIn, function(req, res){
    var memento = req.body.memento;
-   var day_number = req.body.day_number;
+   var day_number = Math.round(Math.abs((Date.now() - req.user.birthday.getTime())/(1000 * 60 * 60 * 24)));
    var desc = req.body.description;
    var author = { 
       id: req.user._id,
@@ -41,23 +41,23 @@ router.get("/:id", function(req, res){
       if(err){
          console.log(err);
       } else {
-         res.render("campgrounds/show", {campground: foundCampground});
+         res.render("journalentries/show", {campground: foundCampground});
       }
    });
 });
 
 router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res){
    Journalentry.findById(req.params.id, function(err, foundCampground){
-         res.render("campgrounds/edit", {campground: foundCampground});
+         res.render("journalentries/edit", {campground: foundCampground});
    });
 });
 
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
    Journalentry.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground){
       if(err) {
-         res.redirect("/campgrounds");
+         res.redirect("/journalentries");
       } else {
-         res.redirect("/campgrounds/" + req.params.id);
+         res.redirect("/journalentries/" + req.params.id);
       }
    });
 });
@@ -65,9 +65,9 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
    Journalentry.findByIdAndRemove(req.params.id, function(err){
       if(err) {
-         res.redirect("/campgrounds");
+         res.redirect("/journalentries");
       } else {
-         res.redirect("/campgrounds");
+         res.redirect("/journalentries");
       }
    });
 });
