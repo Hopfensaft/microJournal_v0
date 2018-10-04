@@ -26,8 +26,20 @@
   font-size: 15px;
 }
 
+#bottom_center {
+  text-align: center;  
+}
+
+#bottom_right {
+  text-align: right;  
+}
+
 #center_text {
   text-align: center;
+}
+
+#day_num_flex {
+  padding-left: 60px;
 }
 
 #day_num {
@@ -37,9 +49,23 @@
   margin-bottom: 5px;
 }
 
+#feeling_button {
+  margin: 0px;
+  height: 35px;
+  width: 35px;
+  font-size: 11px;
+  border-radius: 50%;
+}
+
 #flex-outline {
   max-width: 300px;
   margin: 20px 20px;
+  padding: 50px;
+}
+
+#main_flex_row {
+  display:flex; 
+  flex-wrap: wrap;
 }
 
 #main-item {
@@ -50,8 +76,18 @@
   margin: 7px;
 }
 
-#middle-column {
+#middle_column {
   height: 250px;
+}
+
+#middle_column_left {
+  height: 250px;
+  width: 1px; 
+  margin: 0;
+}
+
+#middle_column_content {
+  height: 100%;
 }
 
 #wake_button {

@@ -11,17 +11,17 @@
         </div>    
     </header>
 
-    <div class="row" style="display:flex; flex-wrap: wrap;">
+    <div class="row" id="main_flex_row">
         <% journalentries.forEach(function(journalentry){ %>
-            <div class="d-inline-flex flex-column">
+            <div class="d-inline-flex flex-column" id="day_num_flex">
                 <div>&nbsp;</div>
-                <div class="d-inline-flex align-items-end" style="width: 1px; margin: 0;" id="middle-column"><div id="day_num">#<%= journalentry.day_number %></div></div>
+                <div class="d-inline-flex align-items-end" id="middle_column_left"><div id="day_num">#<%= journalentry.day_number %></div></div>
                 <div>&nbsp;</div>
             </div>
             <div class="d-inline-flex flex-column justify-content-between">
                 <div>Special</div>
-                <div class="card" id="middle-column">
-                    <div class="d-inline-flex flex-column justify-content-between align-items-center" style="height: 100%;">
+                <div class="card" id="middle_column">
+                    <div class="d-inline-flex flex-column justify-content-between align-items-center" id="middle_column_content">
                         <div><button type="button" class="btn btn-primary btn-circle align-self-center" id="activity_button"><i class="fas fa-plus"></i></button></div>
                         <div class="d-inline-flex justify-content-between flex-grow-1 align-items-center">
                             <div><button type="button" class="btn btn-primary btn-circle" id="activity_button"><i class="fas fa-plus"></i></button></div>
@@ -37,12 +37,12 @@
                             <i class="fas fa-lg fa-bell" data-toggle="tooltip" data-placement="top" title="Time you woke up"></i>
                         </button> 06:00
                     </div>
-                    <div style="text-align: center;">
-                        <button type="button" class="btn btn-primary" id="wake_button feeling_button">
+                    <div id="bottom_center">
+                        <button type="button" class="btn btn-primary" id="feeling_button">
                             <i class="far fa-4x fa-smile-beam" data-toggle="tooltip" data-placement="top" title="How did you feel today"></i>
                         </button>
                     </div>
-                    <div style="text-align: right;"> 
+                    <div id="bottom_right"> 
                         <button type="button" class="btn btn-primary" id="wake_button">
                             <i class="fas fa-lg fa-bed" data-toggle="tooltip" data-placement="top" title="Time you went to sleep"></i>
                         </button> 23:00
