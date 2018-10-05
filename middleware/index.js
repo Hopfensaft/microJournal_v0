@@ -2,11 +2,11 @@ var middlewareObj = {},
     Journalentry = require("../models/journalentry");
     //Comment = require("../models/comment");
 
-middlewareObj.checkCampgroundOwnership = function(req, res, next){
+middlewareObj.checkEntryOwnership = function(req, res, next){
    if(req.isAuthenticated()){
       Journalentry.findById(req.params.id, function(err, foundJournalentry){
          if(err){
-            req.flash("error", "Campground not found");
+            req.flash("error", "Journalentry not found");
             res.redirect("/journalentries")
          } else {
             if(foundJournalentry.author.id.equals(req.user._id)) {
