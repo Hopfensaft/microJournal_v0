@@ -107,6 +107,13 @@ body {
     margin: 20px 0;
 }
 
+.button_content {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+
 .card {
   width: 250px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
