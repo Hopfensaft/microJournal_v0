@@ -36,6 +36,11 @@
 
 #center_text {
   text-align: center;
+  vertical-align: center;
+  border: solid 1px #cfcfcf;
+  border-radius: 3px;
+  min-height: 150px;
+  min-width: 150px;
 }
 
 #day_num_flex {
