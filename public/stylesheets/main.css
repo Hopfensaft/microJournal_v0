@@ -36,7 +36,7 @@
 
 #center_text {
   text-align: center;
-  vertical-align: center;
+  padding: 15% 0 0 0;
   border: solid 1px #cfcfcf;
   border-radius: 3px;
   min-height: 150px;

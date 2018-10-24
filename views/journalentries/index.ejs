@@ -19,7 +19,7 @@
                 <div>&nbsp;</div>
             </div>
             <div class="d-inline-flex flex-column justify-content-between">
-                <div>Special</div>
+                <div><%= journalentry.special %></div>
                 <div class="card" id="middle_column">
                     <div class="d-inline-flex flex-column justify-content-between align-items-center" id="middle_column_content">
                         <div><button type="button" class="btn btn-primary btn-circle" id="activity_button"><i class="fas fa-plus button_content"></i></button></div>
@@ -35,7 +35,7 @@
                     <div>
                         <button type="button" class="btn btn-primary" id="wake_button">
                             <i class="fas fa-lg fa-bell button_content" data-toggle="tooltip" data-placement="top" title="Time you woke up"></i>
-                        </button> 06:00
+                        </button> <%= journalentry.sleep.awake %>
                     </div>
                     <div id="bottom_center">
                         <button type="button" class="btn btn-primary" id="feeling_button">
@@ -45,7 +45,7 @@
                     <div id="bottom_right"> 
                         <button type="button" class="btn btn-primary" id="wake_button">
                             <i class="fas fa-lg fa-bed button_content" data-toggle="tooltip" data-placement="top" title="Time you went to sleep"></i>
-                        </button> 23:00
+                        </button> <%= journalentry.sleep.asleep %>
                     </div>
                 </div>
             </div>

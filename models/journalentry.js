@@ -5,6 +5,7 @@ var journalSchema = new mongoose.Schema({
    updated: { type: Date, default: Date.now },
    day_number: Number,
    memento: String,
+   special: String,
    to_do: [String],
    gratitude: [String],
    sleep: {

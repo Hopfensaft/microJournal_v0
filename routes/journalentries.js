@@ -22,7 +22,12 @@ router.post("/", middleware.isLoggedIn, function(req, res){
       id: req.user._id,
       username: req.user.username
       };
-   var newJournalentry = {memento: memento, day_number: day_number, author: author};
+   var special = req.body.special;
+   var sleep = {
+      awake: req.body.awake, 
+      asleep: req.body.asleep, 
+   };
+   var newJournalentry = {memento: memento, day_number: day_number, author: author, special: special, sleep: sleep};
    Journalentry.create(newJournalentry, function(err, newlyCreated){
      if(err){
         console.log(err);
