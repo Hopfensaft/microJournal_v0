@@ -14,10 +14,20 @@
                     <input class="form-control" type="text" name="special" placeholder="Any special circumstances? (travel,...)">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="asleep" placeholder="When did you wake up?">
+                    <div class='input-group date datetimepicker' id='datetimepicker_awake'>
+                        <input type='text' class="form-control" placeholder="When did you wake up?"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="awake" placeholder="When did you go to bed?">
+                    <div class='input-group date datetimepicker' id='datetimepicker_asleep'>
+                        <input type='text' class="form-control" placeholder="When did you go to bed?"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-md btn-primary btn-block">Submit!</button>
@@ -26,6 +36,14 @@
             <a href="/journalentries">Go back</a>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $('.datetimepicker').datetimepicker({
+                format: 'LT',
+                use24hours: true
+            });
+        });
+    </script>
 </div>
 
 <% include ../partials/footer %>

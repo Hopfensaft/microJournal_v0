@@ -9,8 +9,8 @@ var journalSchema = new mongoose.Schema({
    to_do: [String],
    gratitude: [String],
    sleep: {
-        awake: Date,
-        asleep: Date,
+        awake: String,
+        asleep: String,
         quality: { type: Number, min: 0, max: 4 }
    },
    author: {
