@@ -1,5 +1,13 @@
 <% include ../partials/header %>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css" />
+
+
 <div class="container">
     <div class="row justify-content-center">
         <h1>Create a new journal entry</h1>
@@ -14,19 +22,19 @@
                     <input class="form-control" type="text" name="special" placeholder="Any special circumstances? (travel,...)">
                 </div>
                 <div class="form-group">
-                    <div class='input-group date datetimepicker' id='datetimepicker_awake'>
-                        <input type='text' class="form-control" placeholder="When did you wake up?"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
-                        </span>
+                    <div class="input-group date datetimepicker" id="datetimepicker_awake" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_awake" placeholder="When did you wake up?" name="awake"/>
+                        <div class="input-group-append" data-target="#datetimepicker_awake" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class='input-group date datetimepicker' id='datetimepicker_asleep'>
-                        <input type='text' class="form-control" placeholder="When did you go to bed?"/>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
-                        </span>
+                    <div class="input-group date datetimepicker" id="datetimepicker_asleep" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_asleep" placeholder="When did you go to sleep?" name="asleep" />
+                        <div class="input-group-append" data-target="#datetimepicker_asleep" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -36,14 +44,14 @@
             <a href="/journalentries">Go back</a>
         </div>
     </div>
-    <script type="text/javascript">
-        $(function () {
-            $('.datetimepicker').datetimepicker({
-                format: 'LT',
-                use24hours: true
-            });
-        });
-    </script>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.datetimepicker').datetimepicker({
+            format:'HH:mm'
+        });
+    });
+</script>
 
 <% include ../partials/footer %>
