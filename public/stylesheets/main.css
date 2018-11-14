@@ -71,6 +71,7 @@
 #main_flex_row {
   display:flex; 
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 #main-item {
