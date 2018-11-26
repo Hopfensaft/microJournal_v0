@@ -8,9 +8,11 @@ var express = require("express"),
     localStrategy = require("passport-local"),
     methodOverride = require("method-override"),
     JournalEntry = require("./models/journalentry"),
+    Activity = require("./models/activity"),
     User = require("./models/user");
     
 var journalentryRoutes = require("./routes/journalentries"),
+    activityRoutes = require("./routes/activities"), 
     indexRoutes = require("./routes/index");
 
 //Passport configuration
@@ -41,10 +43,10 @@ mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"))
-// seedDB(); ssed the database
 
 app.use(indexRoutes);
 app.use("/journalentries", journalentryRoutes);
+app.use("/activities", activityRoutes);
 //app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){

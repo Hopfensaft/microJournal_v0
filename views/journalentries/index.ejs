@@ -7,6 +7,8 @@
             <p>The quick and easy way to stick to a daily journaling routine</p>
             <p>
                 <a class="btn btn-primary btn-lg" href="/journalentries/new">Add new entry for today</a>
+                <a class="btn btn-primary btn-lg" href="/activities/new">Create a new activity</a>
+                <a class="btn btn-primary btn-lg" href="/activities/track">Track an activity</a>
             </p>
         </div>    
     </header>
@@ -18,7 +20,7 @@
                 <div class="d-inline-flex align-items-end" id="middle_column_left"><div id="day_num">#<%= journalentry.day_number %></div></div>
                 <div>&nbsp;</div>
             </div>
-            <div class="d-inline-flex flex-column justify-content-between">
+            <div class="d-inline-flex flex-column justify-content-between" id="middle_entry_flex">
                 <div><%= journalentry.special %></div>
                 <div class="card" id="middle_column">
                     <div class="d-inline-flex flex-column justify-content-between align-items-center" id="middle_column_content">
@@ -49,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div id="goals_flex">
                 <div class="d-inline-flex flex-column">
                     <button type="button" class="btn btn-primary btn-circle" id="add-stuff"><i class="fas fa-plus button_content"></i></button>
                     <button type="button" class="btn btn-outline-primary" id="add-stuff"><i class="fab fa-untappd button_content"></i></button>

@@ -11,11 +11,10 @@
 
 #add-stuff {
   position: relative;
-  margin-top: 5px;
-  height: 50px;
-  width: 50px;
+  margin: 5px 10px 0px 5px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  margin-left: 5px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
   box-shadow: 2px 2px 5px 0px rgba(133,133,133,1);
@@ -45,6 +44,7 @@
 
 #day_num_flex {
   padding-left: 60px;
+  margin-top: 30px;
 }
 
 #day_num {
@@ -68,10 +68,13 @@
   padding: 50px;
 }
 
+#goals_flex {
+  margin-top: 60px;
+}
+
 #main_flex_row {
   display:flex; 
   flex-wrap: wrap;
-  margin-top: 30px;
 }
 
 #main-item {
@@ -94,6 +97,10 @@
 
 #middle_column_content {
   height: 100%;
+}
+
+#middle_entry_flex {
+  margin-top: 60px;
 }
 
 #wake_button {
