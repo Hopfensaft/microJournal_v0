@@ -16,11 +16,15 @@
         <div style="width: 40%; margin: 30px auto; ">
             <form action="/activities/new" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="activity" placeholder="Choose activity">
+                    <select class="form-control" type="text" name="activity" placeholder="Choose activity">
+                        <% activities.forEach(function(activity){ %>
+                            <option value="<% activity.id %>"><%= activity.category %>:<%= activity.title %></option>
+                        <% }); %>
+                    </select>
                 </div>
                 <div class="form-group">
                     <div class="input-group date datetimepicker" id="datetimepicker_start" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" placeholder="Then should tracking start?" name="start"/>
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_start" placeholder="Then should tracking start?" name="startDate"/>
                         <div class="input-group-append" data-target="#datetimepicker_start" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                         </div>
@@ -28,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <div class="input-group date datetimepicker" id="datetimepicker_end" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" placeholder="When should tracking end?" name="end" />
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_end" placeholder="When should tracking end?" name="endDate" />
                         <div class="input-group-append" data-target="#datetimepicker_end" data-toggle="datetimepicker">
                             <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
                         </div>
@@ -45,8 +49,8 @@
 
 <script type="text/javascript">
     $(function () {
-        $('.datetimepicker').datetimepicker({
-            format:'dd/mm/yyyy'
+        $(".datetimepicker").datetimepicker({
+            format:"DD/MM/YYYY"
         });
     });
 </script>

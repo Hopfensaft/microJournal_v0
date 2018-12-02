@@ -37,7 +37,13 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 router.get("/track", middleware.isLoggedIn, function(req, res){
-   res.render("activities/track"); 
+      Activity.find({}, function(err, activities){
+      if(err){
+         console.log(err);
+      } else {
+         res.render("activities/track", {activities: activities});
+      }
+   }); 
 });
 
 router.post("/track", middleware.isLoggedIn, function(req, res){
