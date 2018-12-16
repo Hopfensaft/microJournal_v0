@@ -34,6 +34,7 @@ var journalSchema = new mongoose.Schema({
          ref: "Goal"
        }
     ],
+    versionKey: false
 });
 
 module.exports = mongoose.model("Journal", journalSchema);

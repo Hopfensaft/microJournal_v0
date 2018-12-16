@@ -2,6 +2,7 @@ var express = require("express"),
     router = express.Router(),
     Journalentry = require("../models/journalentry"),
     Activity = require("../models/activity"),
+    ActivityTrackig = require("../models/tracking"),
     middleware = require("../middleware");
 
 /*
@@ -15,10 +16,16 @@ router.get("/", middleware.isLoggedIn, function(req, res){
    });
 }); */
 
+router.get("/new", middleware.isLoggedIn, function(req, res){
+   res.render("activities/new"); 
+});
+
 router.post("/new", middleware.isLoggedIn, function(req, res){
    var title = req.body.title;
    var description = req.body.description;
    var category = req.body.category;
+   
+   console.log("triggered new ability to save");
    
    var newActivity = {title: title, description: description, category: category};
    Activity.create(newActivity, function(err, newlyCreated){
@@ -30,10 +37,6 @@ router.post("/new", middleware.isLoggedIn, function(req, res){
      }
    });
    
-});
-
-router.get("/new", middleware.isLoggedIn, function(req, res){
-   res.render("activities/new"); 
 });
 
 router.get("/track", middleware.isLoggedIn, function(req, res){
@@ -50,6 +53,8 @@ router.post("/track", middleware.isLoggedIn, function(req, res){
    var userId = req.user._id;
    var startDate = req.body.startDate;
    var endDate = req.body.endDate;
+   
+   console.log("triggered new ability to track");
    
    var newActivityTracking = {userId: userId, startDate: startDate, endDate: endDate};
    Activity.create(newActivityTracking, function(err, newlyCreated){
