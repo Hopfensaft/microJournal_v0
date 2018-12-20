@@ -24,10 +24,12 @@ router.post("/new", middleware.isLoggedIn, function(req, res){
    var title = req.body.title;
    var description = req.body.description;
    var category = req.body.category;
+   var logo = req.body.logo;
    
    console.log("triggered new ability to save");
    
-   var newActivity = {title: title, description: description, category: category};
+   var newActivity = {title: title, description: description, 
+                      category: category, logo: logo};
    Activity.create(newActivity, function(err, newlyCreated){
      if(err){
         console.log(err);
