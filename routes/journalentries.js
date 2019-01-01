@@ -1,6 +1,7 @@
 var express = require("express"),
     router = express.Router(),
     Journalentry = require("../models/journalentry"),
+    Activity = require("../models/activity"),
     middleware = require("../middleware");
 
 router.get("/", middleware.isLoggedIn, function(req, res){
@@ -27,6 +28,19 @@ router.post("/", middleware.isLoggedIn, function(req, res){
       awake: req.body.awake, 
       asleep: req.body.asleep, 
    };
+   
+   /*
+   var activities = [];
+   
+   Activity.findById(req.params.id).exec(function(err, foundEntry){
+      if(err){
+         console.log(err);
+      } else {
+         res.render("journalentries/show", {journalentry: foundEntry});
+      }
+   });
+   */
+   
    var newJournalentry = {memento: memento, day_number: day_number, author: author, special: special, sleep: sleep};
    Journalentry.create(newJournalentry, function(err, newlyCreated){
      if(err){

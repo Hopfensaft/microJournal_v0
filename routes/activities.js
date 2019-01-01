@@ -2,7 +2,7 @@ var express = require("express"),
     router = express.Router(),
     Journalentry = require("../models/journalentry"),
     Activity = require("../models/activity"),
-    ActivityTrackig = require("../models/tracking"),
+    ActivityTracking = require("../models/tracking"),
     middleware = require("../middleware");
 
 /*
@@ -55,11 +55,16 @@ router.post("/track", middleware.isLoggedIn, function(req, res){
    var userId = req.user._id;
    var startDate = req.body.startDate;
    var endDate = req.body.endDate;
+   var activity = req.body.activity;
+   
+   console.log(req.body.startDate);
+   console.log(req.body.endDate);
+   console.log(req.body.activity);
    
    console.log("triggered new ability to track");
    
-   var newActivityTracking = {userId: userId, startDate: startDate, endDate: endDate};
-   Activity.create(newActivityTracking, function(err, newlyCreated){
+   var newActivityTracking = {userId: userId, startDate: startDate, endDate: endDate, activity:activity};
+   ActivityTracking.create(newActivityTracking, function(err, newlyCreated){
      if(err){
         console.log(err);
      } else {
