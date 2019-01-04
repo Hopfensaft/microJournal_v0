@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <select class="form-control" type="text" name="activity" placeholder="Choose activity">
                         <% activities.forEach(function(activity){ %>
-                            <option value="<% activity.id %>"><%= activity.category %>: <%= activity.title %></option>
+                            <option value="<%= activity._id.toString() %>"><%= activity.category %>: <%= activity.title %></option>
                         <% }); %>
                     </select>
                 </div>

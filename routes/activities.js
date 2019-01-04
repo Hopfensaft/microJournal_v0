@@ -1,4 +1,5 @@
 var express = require("express"),
+    moment = require("moment"),
     router = express.Router(),
     Journalentry = require("../models/journalentry"),
     Activity = require("../models/activity"),
@@ -53,13 +54,9 @@ router.get("/track", middleware.isLoggedIn, function(req, res){
 
 router.post("/track", middleware.isLoggedIn, function(req, res){
    var userId = req.user._id;
-   var startDate = req.body.startDate;
-   var endDate = req.body.endDate;
-   var activity = req.body.activity;
-   
-   console.log(req.body.startDate);
-   console.log(req.body.endDate);
-   console.log(req.body.activity);
+   var startDate = moment(req.body.startDate, 'DD/MM/YYYY', true).format();
+   var endDate = moment(req.body.endDate, 'DD/MM/YYYY', true).format();
+   var activity = req.body.activity.toString();
    
    console.log("triggered new ability to track");
    
