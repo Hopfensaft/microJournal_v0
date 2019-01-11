@@ -2,7 +2,8 @@ var express = require("express"),
     router = express.Router(),
     Journalentry = require("../models/journalentry"),
     Activity = require("../models/activity"),
-    middleware = require("../middleware");
+    middleware = require("../middleware"),
+    ActivityTracking = require("../models/tracking");
 
 router.get("/", middleware.isLoggedIn, function(req, res){
    Journalentry.find({author:{id: req.user._id}}, function(err, journalentries){
@@ -29,19 +30,30 @@ router.post("/", middleware.isLoggedIn, function(req, res){
       asleep: req.body.asleep, 
    };
    
-   /*
    var activities = [];
+   var tracked_activities = []
    
-   Activity.findById(req.params.id).exec(function(err, foundEntry){
+   ActivityTracking.find({userId:req.user._id, startDate:{$lte:Date.now()}, endDate:{$gte:Date.now()} }, function(err, tracked){
       if(err){
          console.log(err);
       } else {
-         res.render("journalentries/show", {journalentry: foundEntry});
+         console.log(tracked)
+         tracked.forEach(function(item) {
+             tracked_activities.push(item.activity);
+         });
+         tracked_activities.forEach(function(item) {
+             var entry = {id: item.activity, done: false}
+             activities.push(entry);
+         });
       }
    });
-   */
    
-   var newJournalentry = {memento: memento, day_number: day_number, author: author, special: special, sleep: sleep};
+   
+   console.log(tracked_activities)
+   console.log(activities)
+   
+   
+   var newJournalentry = {memento: memento, day_number: day_number, author: author, special: special, sleep: sleep, activities: activities};
    Journalentry.create(newJournalentry, function(err, newlyCreated){
      if(err){
         console.log(err);
