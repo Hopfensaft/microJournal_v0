@@ -31,22 +31,26 @@ router.post("/", middleware.isLoggedIn, function(req, res){
    };
    
    var activities = [];
-   var tracked_activities = []
+   var tracked_activities = [];
    
    ActivityTracking.find({userId:req.user._id, startDate:{$lte:Date.now()}, endDate:{$gte:Date.now()} }, function(err, tracked){
       if(err){
          console.log(err);
       } else {
-         console.log(tracked)
+         console.log(tracked);
          tracked.forEach(function(item) {
              tracked_activities.push(item.activity);
          });
-         tracked_activities.forEach(function(item) {
-             var entry = {id: item.activity, done: false}
-             activities.push(entry);
-         });
       }
+      
+   }).then(function(tracked_activities){
+         console.log(tracked_activities);
+         tracked_activities.forEach(function(item) {
+            var entry = {id: item.activity, done: false};
+            activities.push(entry);
+         });
    });
+  
    
    
    console.log(tracked_activities)
